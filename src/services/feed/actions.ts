@@ -5,5 +5,5 @@ export const getFeeds = createAsyncThunk('feeds/getFeeds', getFeedsApi);
 
 export const getOrderByNumber = createAsyncThunk(
   'feeds/getOrderByID',
-  async (number: number) => await getOrderByNumberApi(number)
+  getOrderByNumberApi
 );

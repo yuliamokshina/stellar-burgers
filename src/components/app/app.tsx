@@ -25,10 +25,10 @@ const App = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
+
   const backgroundLocation = location.state?.background;
 
   const currentOrder = useSelector(getCurrentOrder);
-  const orderTitle = currentOrder?.name || '';
 
   useEffect(() => {
     dispatch(getUser());
@@ -44,7 +44,7 @@ const App = () => {
       <Route
         path='/ingredients/:id'
         element={
-          <Modal title={'Детали ингредиента'} onClose={handleModalClose}>
+          <Modal onClose={handleModalClose}>
             <IngredientDetails />
           </Modal>
         }
@@ -52,7 +52,7 @@ const App = () => {
       <Route
         path='/feed/:number'
         element={
-          <Modal title={orderTitle} onClose={handleModalClose}>
+          <Modal onClose={handleModalClose}>
             <OrderInfo />
           </Modal>
         }
@@ -62,7 +62,7 @@ const App = () => {
         element={
           <OnlyAuth
             component={
-              <Modal title={orderTitle} onClose={handleModalClose}>
+              <Modal onClose={handleModalClose}>
                 <OrderInfo />
               </Modal>
             }
@@ -75,6 +75,7 @@ const App = () => {
   return (
     <div className={styles.app}>
       <AppHeader />
+
       <Routes location={backgroundLocation || location}>
         <Route path='*' element={<NotFound404 />} />
         <Route path='/' element={<ConstructorPage />} />

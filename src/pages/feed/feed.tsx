@@ -4,7 +4,6 @@ import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from '../../services/store';
 import { getFeeds } from '../../services/feed/actions';
 import { getAllOrders, getFeedsIsLoading } from '../../services/feed/slice';
-import { getOrders } from '../../services/orders/actions';
 
 export const Feed: FC = () => {
   const dispatch = useDispatch();
@@ -16,7 +15,7 @@ export const Feed: FC = () => {
   }, [dispatch]);
 
   const handleGetFeeds = () => {
-    dispatch(getOrders());
+    dispatch(getFeeds());
   };
 
   if (isLoading) {
