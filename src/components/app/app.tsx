@@ -44,7 +44,7 @@ const App = () => {
       <Route
         path='/ingredients/:id'
         element={
-          <Modal onClose={handleModalClose}>
+          <Modal onClose={handleModalClose} title='Детали ингредиента'>
             <IngredientDetails />
           </Modal>
         }
@@ -82,6 +82,9 @@ const App = () => {
         <Route path='/login' element={<OnlyUnAuth component={<Login />} />} />
         <Route path='/feed' element={<Feed />} />
         <Route path='/feed/:number' element={<OrderInfo />} />
+
+        <Route path='/ingredients/:id' element={<IngredientDetails />} />
+
         <Route
           path='/register'
           element={<OnlyUnAuth component={<Register />} />}
