@@ -2,7 +2,7 @@ import { ProfileUI } from '@ui-pages';
 import { FC, SyntheticEvent, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from '../../services/store';
 import { getCurrentUser, setUser } from '../../services/user/slice';
-import { updateUserApi } from '@api';
+import { updateUserApi } from '../../utils/burger-api';
 
 export const Profile: FC = () => {
   const dispatch = useDispatch();
